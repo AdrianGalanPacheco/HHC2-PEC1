@@ -1,0 +1,10 @@
+@use "sass:color";
+@use "variables";
+
+@function opacity-lighten($color, $opacity, $lightness: 10%) {
+    $lightened-color: color.mix(white, $color, $lightness);
+    @return rgba(color.channel($lightened-color, "red", $space: rgb),
+        color.channel($lightened-color, "green", $space: rgb),
+        color.channel($lightened-color, "blue", $space: rgb),
+        $opacity );
+}

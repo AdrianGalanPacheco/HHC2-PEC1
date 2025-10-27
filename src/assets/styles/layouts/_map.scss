@@ -1,0 +1,218 @@
+@use "../variables";
+
+.map {
+  padding: variables.$section-padding;
+  background-color: variables.$color-bg;
+  color: variables.$color-text;
+  text-align: center;
+
+  &__header {
+    width: 100%;
+    margin: 0 auto 3rem auto;
+
+    &-title {
+      font-family: variables.$font-family-serif;
+      font-size: 2.5rem;
+      color: variables.$color-primary;
+      margin-bottom: 1rem;
+    }
+
+    &-subtitle {
+      font-size: 1.1rem;
+      color: variables.$color-text;
+      line-height: 1.6;
+    }
+
+    &-separator {
+      display: block;
+      width: 100%;
+      height: 3px;
+      background-color: variables.$color-secondary;
+      margin: 1.5rem auto 0 auto;
+      border-radius: 2px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+
+    &-image-container {
+      width: 100%;
+      max-width: 600px;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    &-image {
+      width: 100%;
+      display: block;
+    }
+  }
+
+  &__locations {
+    width: 100%;
+    max-width: 400px;
+    margin: 3rem auto 3rem;
+
+    &-title {
+      font-family: variables.$font-family-serif;
+      font-size: 1.8rem;
+      color: variables.$color-primary;
+      margin-bottom: 1rem;
+    }
+
+    &-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      li a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.25rem;
+        text-decoration: none;
+        color: variables.$color-text;
+        font-weight: 600;
+        font-size: 1.1rem;
+        padding: 0.5rem 0.8rem;
+        border-radius: 6px;
+        cursor: pointer;
+
+        i {
+          color: variables.$color-primary;
+        }
+
+        .map__location-list-header {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          justify-content: center;
+        }
+
+        .map__location-list-description {
+          font-weight: 400;
+          font-size: 0.95rem;
+          color: variables.$color-text;
+        }
+
+        &:hover {
+          background-color: variables.$color-primary;
+          color: white;
+
+          i {
+            color: white;
+          }
+
+          .map__location-list-description {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+
+  &__interactive {
+    width: 100%;
+    height: 400px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Tablet */
+@media (min-width: variables.$mqTablet) {
+  .map {
+    &__content {
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 2rem;
+
+      &-image-container {
+        max-width: 50%;
+      }
+    }
+
+    &__locations {
+      max-width: 45%;
+
+      &-title {
+        font-size: 2rem;
+        margin-top: 0;
+      }
+
+      &-list li a .map__location-list-description {
+        font-size: 1rem;
+      }
+    }
+
+    &__header {
+      &-title {
+        font-size: 2.8rem;
+      }
+
+      &-subtitle {
+        font-size: 1.2rem;
+      }
+    }
+
+    &__interactive {
+      height: 500px;
+    }
+  }
+}
+
+
+/* Escritorio */
+@media (min-width: variables.$mqDesktop) {
+  .map {
+    &__content {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 3rem;
+
+      &-image-container {
+        max-width: 60%;
+      }
+    }
+
+    &__locations {
+      max-width: 35%;
+
+      &-title {
+        font-size: 2.5rem;
+      }
+
+      &-list li a {
+        font-size: 2rem;
+      }
+
+      &-list li a .map__location-list-description {
+        font-size: 1.5rem;
+      }
+    }
+
+    &__header {
+      &-title {
+        font-size: 3.5rem;
+      }
+
+      &-subtitle {
+        font-size: 2.5rem;
+      }
+    }
+
+    &__interactive {
+      height: 600px;
+    }
+  }
+}

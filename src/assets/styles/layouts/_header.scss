@@ -1,0 +1,195 @@
+@use "../variables";
+
+.header {
+  position: fixed;
+  height: 10vh;
+  width: 100%;
+  z-index: 1000;
+  background:
+    linear-gradient(variables.$color-header-overlay, variables.$color-header-overlay),
+    url("../images/header-banner.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+
+  &__menu-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.1);
+      color: variables.$color-secondary;
+    }
+
+    &:focus {
+      outline: 2px solid variables.$color-primary;
+      outline-offset: 3px;
+    }
+  }
+
+  &__title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 6px variables.$color-header-overlay;
+    margin-left: 3vw;
+  }
+
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: variables.$color-header-overlay;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &__checkbox {
+    display: none;
+  }
+
+  &__sidebar {
+    position: fixed;
+    top: 0;
+    left: -75vw;
+    width: 75vw;
+    height: 100vh;
+    background: variables.$color-footer-bg;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.5);
+    padding: 2rem 1.5rem;
+    z-index: 1;
+
+    &-list {
+      list-style: none;
+      padding: 0;
+      margin: 2rem 0 0 0;
+
+      li {
+        margin-bottom: 2rem;
+
+        a {
+          text-decoration: none;
+          color: white;
+          font-weight: 700;
+          font-size: 1.2rem;
+
+          &:hover {
+            color: variables.$color-secondary;
+          }
+        }
+      }
+    }
+
+    &-close {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      font-size: 2rem;
+      cursor: pointer;
+      color: white;
+    }
+  }
+
+  &__checkbox:checked~&__sidebar {
+    left: 0;
+  }
+
+  &__checkbox:checked~&__overlay {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* Tablet */
+@media (min-width: variables.$mqTablet) {
+  .header {
+    height: 12vh;
+    padding: 0 2rem;
+
+    &__title {
+      font-size: 2.2rem;
+    }
+
+    &__menu-toggle {
+      font-size: 2rem;
+      position: absolute;
+      left: 4rem;
+    }
+
+    &__sidebar {
+      width: 50vw;
+      left: -75vw;
+
+      &-list li a {
+        font-size: 1.3rem;
+      }
+    }
+  }
+}
+
+/* Escritorio */
+@media (min-width: variables.$mqDesktop) {
+  .header {
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+
+    &__title {
+      font-size: 3rem;
+      margin-left: 0;
+    }
+
+    &__menu-toggle {
+      display: none;
+    }
+
+    &__sidebar {
+      position: static;
+      display: flex;
+      gap: 2rem;
+      height: auto;
+      width: auto;
+      background: none;
+      box-shadow: none;
+      padding: 0;
+
+      &-list {
+        display: flex;
+        margin: 0;
+        gap: 6rem;
+
+        li {
+          margin: 0;
+
+          a {
+            font-size: 1.5rem;
+            color: white;
+            font-weight: 600;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+
+            &:hover {
+              color: variables.$color-secondary;
+            }
+          }
+        }
+      }
+
+      &-close {
+        display: none;
+      }
+    }
+
+    &__overlay {
+      display: none;
+    }
+  }
+}

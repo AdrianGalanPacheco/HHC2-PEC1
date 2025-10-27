@@ -1,0 +1,29 @@
+@use "sass:color";
+
+$font-family-sans-serif: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  "Helvetica Neue", Arial, sans-serif;
+$font-family-serif: "Merriweather", "Georgia", "Times New Roman", serif;
+
+$color-primary: #006f44;
+$color-secondary: #ff7f50;
+$color-secondary-light: #ffe8df;
+$color-bg: #f0f4f8;
+$color-bg-section: #ffffff;
+$color-text: #1c1c1c;
+$color-header-overlay: rgba(0, 0, 0, 0.35);
+$color-footer-bg: #003049;
+$color-footer-text: #ffffff;
+$color-accent: #ffd166;
+$color-link: #006f44;
+$color-link-hover: #ff7f50;
+$color-border: #d9e2ec;
+
+$mqMinWidth: 420px;
+$mqTablet: 768px;
+$mqDesktop: 1200px;
+
+$base-font-size: 16px;
+$line-height: 1.5;
+$section-padding: 0 4rem 2rem 4rem;
+$border-radius: 8px;
+$box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);

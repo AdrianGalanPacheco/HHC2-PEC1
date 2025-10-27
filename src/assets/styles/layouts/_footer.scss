@@ -1,0 +1,271 @@
+@use "../variables";
+@use "../functions";
+
+.footer {
+  background-color: variables.$color-footer-bg;
+  color: variables.$color-footer-text;
+  padding: 3rem 1.5rem 2rem;
+  font-family: variables.$font-family-sans-serif;
+
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+
+    &-info {
+      &-title {
+        font-family: variables.$font-family-serif;
+        font-size: 1.8rem;
+        color: variables.$color-accent;
+        margin-bottom: 0.8rem;
+      }
+
+      &-description {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: variables.$color-footer-text;
+      }
+    }
+
+    &-links {
+      &-subtitle {
+        font-size: 1.2rem;
+        color: variables.$color-accent;
+        margin-bottom: 1rem;
+        font-weight: 700;
+      }
+
+      &-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        & li {
+          margin-bottom: 0.8rem;
+        }
+
+        &-link {
+          text-decoration: none;
+          color: variables.$color-footer-text;
+          font-size: 1rem;
+
+          &:hover {
+            color: variables.$color-secondary;
+          }
+        }
+      }
+    }
+
+    &-contact {
+      &-subtitle {
+        font-size: 1.2rem;
+        color: variables.$color-accent;
+        margin-bottom: 1rem;
+        font-weight: 700;
+      }
+
+      &-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        & li {
+          margin-bottom: 0.8rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.6rem;
+
+          & i {
+            color: variables.$color-accent;
+            font-size: 1.1rem;
+          }
+
+          & a {
+            text-decoration: none;
+            color: variables.$color-footer-text;
+            font-size: 1rem;
+
+            &:hover {
+              color: variables.$color-secondary;
+            }
+          }
+        }
+      }
+    }
+
+    &-social {
+      &-subtitle {
+        font-size: 1.2rem;
+        color: variables.$color-accent;
+        margin-bottom: 1rem;
+        font-weight: 700;
+      }
+
+      &-icons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+
+        &-icon {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background-color: functions.opacity-lighten(white, 0.1);
+          color: variables.$color-footer-text;
+          font-size: 1.2rem;
+          text-decoration: none;
+
+          &:hover {
+            background-color: variables.$color-secondary;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+
+  &__bottom {
+    margin-top: 3rem;
+    border-top: 1px solid functions.opacity-lighten(white, 0.15);
+    padding-top: 1.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: variables.$color-footer-text;
+  }
+}
+
+/* Tablet */
+@media (min-width: variables.$mqTablet) {
+  .footer {
+    padding: 17vh 3rem 2.5rem;
+    padding: 4rem 3rem 2.5rem;
+
+    &__container {
+      grid-template-columns: repeat(2, 1fr);
+      text-align: left;
+      gap: 3rem;
+    }
+
+    &__container-info {
+      grid-column: span 2;
+      text-align: center;
+
+      &-title {
+        font-size: 2rem;
+      }
+
+      &-description {
+        font-size: 1.05rem;
+      }
+    }
+
+    &__container-links,
+    &__container-contact,
+    &__container-social {
+      &-subtitle {
+        font-size: 1.3rem;
+      }
+
+      &-list li {
+        justify-content: normal;
+      }
+
+      &-list li a {
+        font-size: 1.05rem;
+      }
+    }
+
+    &__container-social {
+      &-icons {
+        justify-content: flex-start;
+      }
+    }
+
+    &__bottom {
+      font-size: 1rem;
+    }
+  }
+}
+
+
+/* Escritorio */
+@media (min-width: variables.$mqDesktop) {
+  .footer {
+    padding: 5rem 5rem 3rem;
+
+    &__container {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto;
+      gap: 3rem 5rem;
+      text-align: left;
+      align-items: start;
+    }
+
+    &__container-info {
+      grid-column: 1 / 4;
+      text-align: center;
+      margin-bottom: 1.5rem;
+
+      &-title {
+        font-size: 3rem;
+      }
+
+      &-description {
+        font-size: 2rem;
+        margin: 0 auto;
+      }
+    }
+
+    &__container-links {
+      grid-column: 1 / 2;
+
+      &-subtitle {
+        font-size: 2rem;
+      }
+
+      &-list li a {
+        font-size: 1.5rem;
+      }
+    }
+
+    &__container-contact {
+      grid-column: 2 / 3;
+
+      &-subtitle {
+        font-size: 2rem;
+      }
+
+      &-list li a {
+        font-size: 1.5rem;
+      }
+    }
+
+    &__container-social {
+      grid-column: 3 / 4;
+
+      &-subtitle {
+        font-size: 2rem;
+      }
+
+      &-icons {
+        justify-content: flex-start;
+        
+        &-icon {
+          font-size: 1.5rem;
+        }
+      }
+    }
+
+    &__bottom {
+      margin-top: 4rem;
+      font-size: 1.5rem;
+    }
+  }
+}

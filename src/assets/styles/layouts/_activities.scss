@@ -1,0 +1,137 @@
+@use "../variables";
+
+.activities {
+  padding: variables.$section-padding;
+  background-color: variables.$color-bg;
+  color: variables.$color-text;
+  text-align: center;
+
+  &__header {
+    width: 100%;
+    margin: 0 auto 3rem auto;
+
+    &-title {
+      font-family: variables.$font-family-serif;
+      font-size: 2.5rem;
+      color: variables.$color-primary;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    &-subtitle {
+      font-family: variables.$font-family-sans-serif;
+      font-size: 1.1rem;
+      color: variables.$color-text;
+    }
+
+    &-separator {
+      display: block;
+      width: 100%;
+      height: 3px;
+      background-color: variables.$color-secondary;
+      margin: 1.5rem auto 0 auto;
+      border-radius: 2px;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    justify-items: center;
+
+    &-item {
+      background-color: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      text-align: left;
+      max-width: 300px;
+
+      &:hover {
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      &-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        display: block;
+      }
+
+      &-title {
+        font-size: 1.4rem;
+        color: variables.$color-primary;
+        margin: 1rem 1.2rem 0.5rem;
+        font-weight: 700;
+
+        &:hover {
+          color: variables.$color-secondary;
+        }
+      }
+
+      &-text {
+        font-size: 1rem;
+        color: variables.$color-text;
+        line-height: 1.6;
+        margin: 0 1.2rem 1.5rem;
+      }
+    }
+  }
+}
+
+/* Tablet */
+@media (min-width: variables.$mqTablet) {
+  .activities {
+    &__grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+
+      &-item {
+        max-width: 100%;
+      }
+    }
+
+    &__header {
+      &-title {
+        font-size: 2.8rem;
+      }
+
+      &-subtitle {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+/* Escritorio */
+@media (min-width: variables.$mqDesktop) {
+  .activities {
+    &__grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3rem;
+
+      &-item {
+        max-width: 100%;
+
+        &-title {
+          font-size: 2rem;
+        }
+
+        &-text {
+          font-size: 1.5rem;
+        }
+      }
+    }
+
+    &__header {
+      &-title {
+        font-size: 4rem;
+      }
+
+      &-subtitle {
+        font-size: 2.5rem;
+      }
+    }
+  }
+}

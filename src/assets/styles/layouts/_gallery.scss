@@ -1,0 +1,132 @@
+@use "../variables";
+
+.gallery {
+  padding: variables.$section-padding;
+  background-color: variables.$color-bg;
+  color: variables.$color-text;
+  text-align: center;
+
+  &__header {
+    width: 100%;
+    margin: 0 auto 3rem auto;
+
+    &-title {
+      font-family: variables.$font-family-serif;
+      font-size: 2.5rem;
+      color: variables.$color-primary;
+      margin-bottom: 1rem;
+    }
+
+    &-subtitle {
+      font-size: 1.1rem;
+      color: variables.$color-text;
+      line-height: 1.6;
+    }
+
+    &-separator {
+      display: block;
+      width: 100%;
+      height: 3px;
+      background-color: variables.$color-secondary;
+      margin: 1.5rem auto 0 auto;
+      border-radius: 2px;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+
+    &-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+      &:hover {
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      &-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        display: block;
+      }
+
+      &-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.45);
+        color: white;
+        font-size: 1rem;
+        padding: 0.8rem;
+        text-align: center;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+/* Tablet */
+@media (min-width: variables.$mqTablet) {
+  .gallery {
+    &__grid {
+      grid-template-columns: repeat(2, 1fr);
+
+      &-item {
+        &-image {
+          height: 220px;
+        }
+
+        &-caption {
+          font-size: 1.05rem;
+        }
+      }
+    }
+
+    &__header {
+      &-title {
+        font-size: 2.8rem;
+      }
+
+      &-subtitle {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+/* Escritorio */
+@media (min-width: variables.$mqDesktop) {
+  .gallery {
+    &__grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+
+      &-item {
+        &-image {
+          height: 250px;
+        }
+
+        &-caption {
+          font-size: 1.5rem;
+          padding: 1rem;
+        }
+      }
+    }
+
+    &__header {
+      &-title {
+        font-size: 3.5rem;
+      }
+
+      &-subtitle {
+        font-size: 2.5rem;
+      }
+    }
+  }
+}
