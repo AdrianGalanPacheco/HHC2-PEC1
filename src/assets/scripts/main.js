@@ -12,11 +12,6 @@
 
 import L from "leaflet";
 
-+(function () {
-  const university = "UOC";
-  console.log(`Hello, ${university}!`);
-})();
-
 const mapContainer = document.getElementById("mapid");
 
 if (mapContainer) {
@@ -51,7 +46,6 @@ if (mapContainer) {
   ];
 
   locations.forEach((loc) => {
-    console.log(`${loc.name}`);
     L.marker(loc.coords).addTo(map).bindPopup(`<b>${loc.name}</b>`).openPopup();
   });
 }
